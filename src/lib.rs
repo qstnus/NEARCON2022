@@ -35,8 +35,6 @@ impl Default for Store {
 impl Store {
     #[init(ignore_state)]
     pub fn init() -> Self {
-        env::log_str(format!("Store::init_store() owner_id: {}",
-                             env::predecessor_account_id().as_str()).as_str());
         assert!(!env::state_exists());
         Self {
             conversations: Vector::new(StorageKeys::StoreStorageKey)
